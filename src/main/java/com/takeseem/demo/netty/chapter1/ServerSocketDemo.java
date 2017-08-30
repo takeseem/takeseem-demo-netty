@@ -23,6 +23,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
+ * 代码清单 1-1 阻塞 I/O 示例：监听端口，回响到客户端
  * @author <a href="https://github.com/takeseem/">杨浩</a>
  */
 public class ServerSocketDemo {
