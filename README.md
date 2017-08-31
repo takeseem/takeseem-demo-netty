@@ -40,3 +40,9 @@
 * [代码清单 8-4 引导服务器](src/main/java/com/takeseem/demo/netty/chapter8/ServerBootstrapDemo.java)
 * [代码清单 8-5 引导服务器 (共享EventLoop)](src/main/java/com/takeseem/demo/netty/chapter8/SharingEventLoopGroup.java)
  * 共享EventLoop，原基础只连接，无法获取页面，利用前面所学现在能正常访问某个网页
+ 
+### 第 9 章 单元测试
+* [代码清单 9-2 测试 FixedLengthFrameDecoder](src/main/java/com/takeseem/demo/netty/chapter9/FixedLengthFrameDecoderTest.java)
+* [代码清单 9-3 AbsIntegerEncoder](src/main/java/com/takeseem/demo/netty/chapter9/AbsIntegerEncoder.java)
+* [代码清单 9-4 测试AbsIntegerEncoder](src/main/java/com/takeseem/demo/netty/chapter9/AbsIntegerEncoderTest.java)
+* [代码清单 9-5 FrameChunkDecoder & 代码清单 9-6 测试FrameChunkDecoder](src/main/java/com/takeseem/demo/netty/chapter9/FrameChunkDecoder.java)
