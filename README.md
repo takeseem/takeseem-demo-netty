@@ -27,3 +27,10 @@
 ### 第 5 章 ByteBuf
 * [ByteBuf示例代码](src/main/java/com/takeseem/demo/netty/chapter5/ByteBufDemo.java)
  * Unpooled.copiedBuffer 最大容量是初始长度，所以write时可能越界
+ 
+### 第 6 章 ChannelHandler和ChannelPipeline
+* [代码清单 6-1 释放消息资源](src/main/java/com/takeseem/demo/netty/chapter6/DiscardHandler.java)
+* [代码清单 6-2 使用 SimpleChannelInboundHandler](src/main/java/com/takeseem/demo/netty/chapter6/SimpleDiscardHandler.java)
+
+### 第 7 章 EventLoop和线程模型
+* [代码清单 7-3 使用 EventLoop 调度任务](src/main/java/com/takeseem/demo/netty/chapter7/EventLoopDemo.java)
