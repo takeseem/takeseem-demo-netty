@@ -34,3 +34,9 @@
 
 ### 第 7 章 EventLoop和线程模型
 * [代码清单 7-3 使用 EventLoop 调度任务](src/main/java/com/takeseem/demo/netty/chapter7/EventLoopDemo.java)
+
+### 第 8 章 引导
+* [代码清单 8-1 引导一个客户端](src/main/java/com/takeseem/demo/netty/chapter8/BootstrapDemo.java)
+* [代码清单 8-4 引导服务器](src/main/java/com/takeseem/demo/netty/chapter8/ServerBootstrapDemo.java)
+* [代码清单 8-5 引导服务器 (共享EventLoop)](src/main/java/com/takeseem/demo/netty/chapter8/SharingEventLoopGroup.java)
+ * 共享EventLoop，原基础只连接，无法获取页面，利用前面所学现在能正常访问某个网页
