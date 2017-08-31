@@ -23,3 +23,7 @@
 * [代码清单 4-4 使用 Netty 的异步网络处理](src/main/java/com/takeseem/demo/netty/chapter4/NettyNioServer.java)
 * [Netty Epoll](src/main/java/com/takeseem/demo/netty/chapter4/NettyEpollServer.java)
 * [代码清单 4-5 写出到 Channel & 代码清单 4-6 从多个线程使用同一个 Channel](src/main/java/com/takeseem/demo/netty/chapter4/ChannelWriterServer.java)
+
+### 第 5 章 ByteBuf
+* [ByteBuf示例代码](src/main/java/com/takeseem/demo/netty/chapter5/ByteBufDemo.java)
+ * Unpooled.copiedBuffer 最大容量是初始长度，所以write时可能越界
