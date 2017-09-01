@@ -46,3 +46,16 @@
 * [代码清单 9-3 AbsIntegerEncoder](src/main/java/com/takeseem/demo/netty/chapter9/AbsIntegerEncoder.java)
 * [代码清单 9-4 测试AbsIntegerEncoder](src/main/java/com/takeseem/demo/netty/chapter9/AbsIntegerEncoderTest.java)
 * [代码清单 9-5 FrameChunkDecoder & 代码清单 9-6 测试FrameChunkDecoder](src/main/java/com/takeseem/demo/netty/chapter9/FrameChunkDecoder.java)
+
+### 第 10 章 编解码器框架
+* [代码清单 10-1 ToIntegerDecoder 类扩展了 ByteToMessageDecoder](src/main/java/com/takeseem/demo/netty/chapter10/ToIntegerDecoder.java)
+* [代码清单 10-2 ToIntegerDecoder2 类扩展了 ReplayingDecoder](src/main/java/com/takeseem/demo/netty/chapter10/ToIntegerDecoder2.java)
+* [代码清单 10-3 IntegerToStringDecoder 类](src/main/java/com/takeseem/demo/netty/chapter10/IntegerToStringDecoder.java)
+* [代码清单 10-4 TooLongFrameException](src/main/java/com/takeseem/demo/netty/chapter10/SafeByteToMessageDecoder.java)
+* [代码清单 10-5 ShortToByteEncoder 类](src/main/java/com/takeseem/demo/netty/chapter10/ShortToByteEncoder.java)
+* [代码清单 10-6 IntegerToStringEncoder 类](src/main/java/com/takeseem/demo/netty/chapter10/IntegerToStringEncoder.java)
+* [代码清单 10-7 使用 MessageToMessageCodec](src/main/java/com/takeseem/demo/netty/chapter10/WebSocketConvertHandler.java)
+* [代码清单 10-8 ByteToCharDecoder 类](src/main/java/com/takeseem/demo/netty/chapter10/ByteToCharDecoder.java)
+* [代码清单 10-9 CharToByteEncoder 类](src/main/java/com/takeseem/demo/netty/chapter10/CharToByteEncoder.java)
+* [代码清单 10-10 CombinedChannelDuplexHandler<I,O>](src/main/java/com/takeseem/demo/netty/chapter10/CombinedByteCharCodec.java)
+ 
