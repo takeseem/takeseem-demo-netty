@@ -77,3 +77,11 @@
 * [代码清单 12-6 为 ChannelPipeline 添加加密](src/main/java/com/takeseem/demo/netty/chapter12/SecureChatServerInitializer.java)
 * [代码清单 12-7 向 ChatServer 添加加密](src/main/java/com/takeseem/demo/netty/chapter12/SecureChatServer.java)
   * 添加加密特性后，就不能使用zero-copy，所以使用chunked方式传文件
+
+### 第 13 章 使用UDP广播事件 
+ * [代码清单 13-1 LogEvent 消息](src/main/java/com/takeseem/demo/netty/chapter13/LogEvent.java)
+ * [代码清单 13-2 LogEventEncoder](src/main/java/com/takeseem/demo/netty/chapter13/LogEventEncoder.java)
+ * [代码清单 13-3 LogEventBroadcaster](src/main/java/com/takeseem/demo/netty/chapter13/LogEventBroadcaster.java)
+ * [代码清单 13-6 LogEventDecoder](src/main/java/com/takeseem/demo/netty/chapter13/LogEventDecoder.java)
+ * [代码清单 13-7 LogEventHandler](src/main/java/com/takeseem/demo/netty/chapter13/LogEventHandler.java)
+ * [代码清单 13-8 LogEventMonitor](src/main/java/com/takeseem/demo/netty/chapter13/LogEventMonitor.java)
