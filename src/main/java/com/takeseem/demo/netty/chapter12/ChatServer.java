@@ -19,7 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
@@ -47,10 +49,14 @@ public class ChatServer {
 		parentGroup = new NioEventLoopGroup();
 		childGroup = new NioEventLoopGroup();
 		channelGroup = new DefaultChannelGroup(ImmediateEventExecutor.INSTANCE);
-		boot.group(parentGroup, childGroup).channel(NioServerSocketChannel.class).childHandler(new ChatServerInitializer(channelGroup));
+		boot.group(parentGroup, childGroup).channel(NioServerSocketChannel.class).childHandler(createInitializer(channelGroup));
 		
 		channelFuture = boot.bind(port).syncUninterruptibly();
 		System.out.println("ChatServer LISTEN " + port);
+	}
+	
+	protected ChannelInitializer<Channel> createInitializer(ChannelGroup channelGroup) {
+		return new ChatServerInitializer(channelGroup);
 	}
 	
 	public void destroy() {
@@ -70,7 +76,7 @@ public class ChatServer {
 		if (channelFuture != null) channelFuture.channel().closeFuture().syncUninterruptibly();
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		int port = 40001;
 		if (args.length > 0) port = Integer.parseInt(args[0]);
 		

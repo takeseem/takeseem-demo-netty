@@ -16,6 +16,7 @@
 package com.takeseem.demo.netty.chapter12;
 
 import java.io.File;
+import java.io.RandomAccessFile;
 
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -32,6 +33,8 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpUtil;
 import io.netty.handler.codec.http.HttpVersion;
 import io.netty.handler.codec.http.LastHttpContent;
+import io.netty.handler.ssl.SslHandler;
+import io.netty.handler.stream.ChunkedNioFile;
 
 /**
  * 代码清单 12-1 HTTPRequestHandler
@@ -57,17 +60,23 @@ public class HTTPRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
 			}
 			
 			System.out.println("发送index页: " + index);
+			@SuppressWarnings("resource")
+			RandomAccessFile indexRAF = new RandomAccessFile(index, "r");
 			HttpResponse response = new DefaultHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
 			response.headers().add(HttpHeaderNames.CONTENT_TYPE, "text/html; charset=UTF-8");
-			long length = index.length();
-			response.headers().add(HttpHeaderNames.CONTENT_LENGTH, length);
 			boolean keepAlive = HttpUtil.isKeepAlive(request); 
 			if (keepAlive) {
+				response.headers().add(HttpHeaderNames.CONTENT_LENGTH, indexRAF.length());
 				response.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
 			}
 			
 			ctx.write(response);
-			ctx.write(new DefaultFileRegion(index, 0, length));
+			if (ctx.pipeline().get(SslHandler.class) == null) {
+				ctx.write(new DefaultFileRegion(index, 0, indexRAF.length()));
+			} else {	//SSL是加密的不能用zero-copy，所以使用Chunked
+				ctx.write(new ChunkedNioFile(indexRAF.getChannel()));
+			}
+			
 			ChannelFuture future = ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
 			if (!keepAlive) future.addListener(ChannelFutureListener.CLOSE);
 		}
