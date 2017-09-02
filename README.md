@@ -26,7 +26,7 @@
 
 ### 第 5 章 ByteBuf
 * [ByteBuf示例代码](src/main/java/com/takeseem/demo/netty/chapter5/ByteBufDemo.java)
- * Unpooled.copiedBuffer 最大容量是初始长度，所以write时可能越界
+  * Unpooled.copiedBuffer 最大容量是初始长度，所以write时可能越界
  
 ### 第 6 章 ChannelHandler和ChannelPipeline
 * [代码清单 6-1 释放消息资源](src/main/java/com/takeseem/demo/netty/chapter6/DiscardHandler.java)
@@ -39,7 +39,7 @@
 * [代码清单 8-1 引导一个客户端](src/main/java/com/takeseem/demo/netty/chapter8/BootstrapDemo.java)
 * [代码清单 8-4 引导服务器](src/main/java/com/takeseem/demo/netty/chapter8/ServerBootstrapDemo.java)
 * [代码清单 8-5 引导服务器 (共享EventLoop)](src/main/java/com/takeseem/demo/netty/chapter8/SharingEventLoopGroup.java)
- * 共享EventLoop，原基础只连接，无法获取页面，利用前面所学现在能正常访问某个网页
+  * 共享EventLoop，原基础只连接，无法获取页面，利用前面所学现在能正常访问某个网页
  
 ### 第 9 章 单元测试
 * [代码清单 9-2 测试 FixedLengthFrameDecoder](src/main/java/com/takeseem/demo/netty/chapter9/FixedLengthFrameDecoderTest.java)
@@ -64,4 +64,7 @@
 * [代码清单 11-2 添加 HTTP 支持](src/main/java/com/takeseem/demo/netty/chapter11/.java)
 * [代码清单 11-3 自动聚合 HTTP 的消息片段](src/main/java/com/takeseem/demo/netty/chapter11/HttpAggregatorInitializer.java)
 * [代码清单 11-4 自动压缩 HTTP 消息](src/main/java/com/takeseem/demo/netty/chapter11/HttpCompressionInitializer.java)
-* [代码清单 11-5 ](src/main/java/com/takeseem/demo/netty/chapter11/.java)
+* [代码清单 11-5 使用 HTTPS](src/main/java/com/takeseem/demo/netty/chapter11/HttpsCodecInitializer.java)
+* [代码清单 11-6 在服务器端支持 WebSocket](src/main/java/com/takeseem/demo/netty/chapter11/WebSocketServerInitializer.java)
+* [代码清单 11-7 发送心跳](src/main/java/com/takeseem/demo/netty/chapter11/IdleStateHandlerInitializer.java)
+* 其他代码清单和其他实例差不多，就不再过度练习
