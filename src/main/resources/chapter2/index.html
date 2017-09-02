@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>WebSocket聊天室</title>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td><input id="url" type="text" size="64"/></td>
+			</tr>
+			<tr>
+				<td><textarea id="log" disabled cols="63" rows="15"></textarea></td>
+			</tr>
+			<tr>
+				<td>
+					<input id="connect" type="submit" value="连接"/>
+					<input id="msg" type="text" size="52"/>
+					<input id="send" type="submit" value="发送"/>
+				</td>
+			</tr>
+		</table>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		var ws = null;
+		
+		function log(msg) {
+			var log = $('#log')
+			log.append(msg + " \n").scrollTop(log[0].scrollHeight - log.height());
+		}
+		function doSend() {
+			var msg = $('#msg').val();
+			if (msg) {
+				$('#msg').val('');
+				ws.send(msg);
+			}
+		}
+		
+		$(function() {
+			$('#url').val(
+				(location.protocol.indexOf('https') == -1 ? 'ws://' : 'wss://') + location.host + '/ws'
+			);
+
+			$('#msg').keypress(function(e) {
+				if (e.keyCode == 13) doSend();
+			});
+			$('#connect').click(function() {
+				if (ws == null || ws.readyState != 1) {
+					ws = new WebSocket($('#url').val())
+	
+					ws.onerror = function(e) {
+						log('Error : ' + e.message)
+					}
+	
+					ws.onopen = function() {
+						log('connected')
+					}
+	
+					ws.onclose = function() {
+						log('disconnected')
+					}
+	
+					ws.onmessage = function(d) {
+						log('Response : ' + d.data)
+					}
+					$('#send').click(doSend);
+				} else {
+					log('closing connection')
+					ws.close()
+				}
+			})
+		})
+	</script>
+</html>

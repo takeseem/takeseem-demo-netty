@@ -68,3 +68,9 @@
 * [代码清单 11-6 在服务器端支持 WebSocket](src/main/java/com/takeseem/demo/netty/chapter11/WebSocketServerInitializer.java)
 * [代码清单 11-7 发送心跳](src/main/java/com/takeseem/demo/netty/chapter11/IdleStateHandlerInitializer.java)
 * 其他代码清单和其他实例差不多，就不再过度练习
+
+### 第 12 章 WebSocket
+* [代码清单 12-1 HTTPRequestHandler](src/main/java/com/takeseem/demo/netty/chapter12/HTTPRequestHandler.java)
+* [代码清单 12-2 处理文本帧](src/main/java/com/takeseem/demo/netty/chapter12/TextWebSocketFrameHandler.java)
+* [代码清单 12-3 初始化 ChannelPipeline](src/main/java/com/takeseem/demo/netty/chapter12/ChatServerInitializer.java)
+* [代码清单 12-4 引导服务器](src/main/java/com/takeseem/demo/netty/chapter12/ChatServer.java)
