@@ -15,8 +15,6 @@
  */
 package com.takeseem.demo.netty.chapter2;
 
-import com.takeseem.demo.netty.UtilDemoNetty;
-
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -55,7 +53,7 @@ public class EchoServer {
 			
 			bindFuture.channel().closeFuture().sync().addListener(f -> System.out.println("Server closed."));
 		} finally {
-			UtilDemoNetty.shutdownGracefullySync(group);
+			group.shutdownGracefully().sync();
 		}
 	}
 	

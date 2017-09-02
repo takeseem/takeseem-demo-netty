@@ -20,8 +20,6 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import com.takeseem.demo.netty.UtilDemoNetty;
-
 import io.netty.util.CharsetUtil;
 
 /**
@@ -46,7 +44,10 @@ public class PlainNioServer {
 					} catch (IOException e) {
 						e.printStackTrace();
 					} finally {
-						UtilDemoNetty.close(socket);
+						try {
+							socket.close();
+						} catch (IOException e) {
+						}
 					}
 				}, "socket-" + socket).start();
 			}

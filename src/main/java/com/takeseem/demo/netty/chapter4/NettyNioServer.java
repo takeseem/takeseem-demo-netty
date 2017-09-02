@@ -15,8 +15,6 @@
  */
 package com.takeseem.demo.netty.chapter4;
 
-import com.takeseem.demo.netty.UtilDemoNetty;
-
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -63,7 +61,7 @@ public class NettyNioServer {
 			ChannelFuture future = boot.bind(port).sync();
 			future.channel().closeFuture().sync();
 		} finally {
-			UtilDemoNetty.shutdownGracefullySync(group);
+			group.shutdownGracefully().sync();
 		}
 	}
 	

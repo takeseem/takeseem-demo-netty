@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-import com.takeseem.demo.netty.UtilDemoNetty;
-
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -111,7 +109,7 @@ public class ChannelWriterServer {
 			ChannelFuture future = boot.bind(port).sync();
 			future.channel().closeFuture().sync();
 		} finally {
-			UtilDemoNetty.shutdownGracefullySync(group);
+			group.shutdownGracefully().sync();
 		}
 	}
 	
